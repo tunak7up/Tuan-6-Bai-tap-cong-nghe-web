@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa hàng Linh Kiện Máy Tính TechZone</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Header -->
+     <!-- Có đầy đủ cấu trúc header, main, footer trong body  -->
+    <header>
+        <!-- tên cửa hàng đặt trong thẻ h1 -->
+        <h1>Cửa hàng Linh Kiện Máy Tính TechZone</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#products">Sản phẩm</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Giới thiệu -->
+        <section>
+            <h2>Chào mừng đến với TechZone</h2>
+            <p>Chuyên cung cấp linh kiện máy tính chính hãng: Laptop, GPU, CPU, RAM, Mainboard và các phụ kiện gaming. Giá tốt nhất thị trường, bảo hành uy tín.</p>
+        </section>
+
+        <!-- 3 sản phẩm mẫu và 1 sản phẩm chính  -->
+        <section id="products">
+            <h2>Sản phẩm nổi bật</h2>            
+
+            <div class="product-container">
+                <article>
+                <h3>Card Màn Hình NVIDIA GeForce RTX 4070 Ti</h3>
+                <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/40-series/rtx-4070-4070ti/geforce-rtx-4070-super-og-1200x630.jpg" alt="NVIDIA RTX 4070 Ti" width="300">
+                <p>Card đồ họa hiệu năng cao với 12GB GDDR6X, hỗ trợ Ray Tracing và DLSS 3. Hoàn hảo cho gaming 4K và render chuyên nghiệp.</p>
+                <p><strong>Thông số:</strong> 12GB GDDR6X | 7680 CUDA Cores | 285W TDP</p>
+                <p><strong>Giá:</strong> 24.990.000 VNĐ</p>
+            </article>
+
+            <!-- Sản phẩm 2 -->
+            <article>
+                <h3>Bộ Vi Xử Lý Intel Core i9-14900K</h3>
+                <img src="https://nguyencongpc.vn/media/product/25341-14900k.png" alt="Intel Core i9-14900K" width="300">
+                <p>CPU thế hệ 14 với 24 nhân 32 luồng, xung nhịp tối đa 6.0GHz. Sức mạnh vượt trội cho gaming, streaming và công việc sáng tạo nội dung.</p>
+                <p><strong>Thông số:</strong> 24 Cores 32 Threads | Max 6.0GHz | Socket LGA1700</p>
+                <p><strong>Giá:</strong> 15.490.000 VNĐ</p>
+            </article>
+
+            <!-- Sản phẩm 3 -->
+            <article>
+                <h3>RAM Corsair Vengeance DDR5 32GB (2x16GB) 6000MHz</h3>
+                <img src="https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/g/r/group_265_3_.png" alt="Corsair Vengeance DDR5" width="300">
+                <p>Bộ nhớ DDR5 cao cấp với tản nhiệt nhôm nguyên khối, RGB SYNC. Tốc độ 6000MHz, latency thấp, tối ưu cho gaming và đa nhiệm.</p>
+                <p><strong>Thông số:</strong> 32GB (2x16GB) | DDR5 6000MHz | CL30 | RGB</p>
+                <p><strong>Giá:</strong> 4.290.000 VNĐ</p>
+            </article>
+            <article>
+                <h4>Thầy Nam đẹp trai</h4>
+                <img style="width: 200px;" src="https://soict.hust.edu.vn/graduation-day/wp-content/uploads/2025/06/LeHaiNam.png" alt="">
+                <img style="width: 200px;" src="https://scontent.fhan4-6.fna.fbcdn.net/v/t39.30808-6/513008115_692398260434783_8495373555973074628_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEzZAn9b4rU5iq5aPE5fdCiUC8CnjLfZNpQLwKeMt9k2nnNoh138m77meVDbOKCZvrvTNP3moGcT2iUHk4zi_XE&_nc_ohc=uUX-T5gXVPUQ7kNvwExYznK&_nc_oc=Adlb-XLZ6NZuxAPZI7CBcSeyhb_1kzHNuedly4z4qEAlwHTvtIcOBwYsqyg9s5FBOU4&_nc_zt=23&_nc_ht=scontent.fhan4-6.fna&_nc_gid=Es6jPz1vEW107uhkQDjvcA&oh=00_AfdJCAel7t10Ln-KJw4w3iFimpTFeajhI2Hdos8HSWqipw&oe=6900EE8A" alt="">
+                <p>Trí tuệ nhân tạo ứng dụng (Applied Artificial Intelligence)</p>
+            </article>
+            </div>
+            <!-- Sản phẩm 1 -->
+             <!-- dùng article để bao quanh mỗi sản phẩm  -->
+            
+        </section>
+
+        <!-- Form liên hệ -->
+         <!-- đã có nhãn label cho các trường nhập liệu cũng như require  -->
+        <section id="contact">
+            <h2>Liên hệ với chúng tôi</h2>
+            <form>
+                <div>
+                    <label for="name">Họ và tên:</label><br>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <label for="message">Nội dung:</label><br>
+                    <textarea id="message" name="message" rows="5" cols="40" required></textarea>
+                </div>
+                
+                <br>
+                
+                <button type="submit">Gửi</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <hr>
+        <p><strong>Cửa hàng Linh Kiện Máy Tính TechZone</strong></p>
+        <p>Địa chỉ: 69 Thanh Xuân Hà Nội</p>
+        <p>Điện thoại: 0987654321 | Hotline: 0123456789</p>
+        <p>Email: tuan.na225772@sis.hust.edu.vn</p>
+        <p>&copy; 2025 TechZone. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>
