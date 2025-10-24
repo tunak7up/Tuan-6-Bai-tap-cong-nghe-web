@@ -53,7 +53,7 @@ if (searchInput) {
 }
 
 
-// ===== CHỨC NĂNG HIỂN THỊ/ẨN FORM THÊM SẢN PHẨM =====
+// CHỨC NĂNG HIỂN THỊ/ẨN FORM THÊM SẢN PHẨM 
 
 // Lấy nút và form thêm sản phẩm
 const addProductBtn = document.getElementById('addProductBtn');
@@ -80,7 +80,7 @@ if (addProductBtn) {
 }
 
 
-// ===== CHỨC NĂNG THÊM SẢN PHẨM MỚI =====
+//  CHỨC NĂNG THÊM SẢN PHẨM MỚI 
 
 // Xử lý submit form thêm sản phẩm
 if (addProductForm) {
@@ -126,7 +126,7 @@ if (addProductForm) {
 }
 
 
-// ===== HIỆU ỨNG BỔ SUNG =====
+//HIỆU ỨNG BỔ SUNG 
 
 // Smooth scroll khi click vào menu
 document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
