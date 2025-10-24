@@ -1,12 +1,14 @@
-// tim kiem san pham
+//CHỨC NĂNG TÌM KIẾM SẢN PHẨM
 
 // Lấy các phần tử cần thiết
 const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
-const products = document.querySelectorAll('.product-container article');
 
 // Hàm tìm kiếm sản phẩm
 function searchProducts() {
+    // Lấy danh sách sản phẩm khi tìm kiếm
+    const products = document.querySelectorAll('.product-container article');
+    
     // Lấy giá trị tìm kiếm và chuyển về chữ thường
     const searchTerm = searchInput.value.toLowerCase().trim();
     
@@ -45,29 +47,30 @@ if (searchBtn) {
 // Gắn sự kiện keyup cho ô tìm kiếm (tìm kiếm khi gõ)
 if (searchInput) {
     searchInput.addEventListener('keyup', function(event) {
-        // Nếu nhấn Enter thì tìm kiếm
-        if (event.key === 'Enter') {
-            searchProducts();
-        }
+        // Tìm kiếm ngay khi gõ
+        searchProducts();
     });
 }
 
 
-// ===== CHỨC NĂNG HIỂN THỊ/ẨN FORM THÊM SẢN PHẨM =====
+// CHỨC NĂNG HIỂN THỊ/ẨN FORM THÊM SẢN PHẨM 
 
 // Lấy nút và form thêm sản phẩm
 const addProductBtn = document.getElementById('addProductBtn');
-const addProductForm = document.getElementById('addProductForm');
+const addProductFormContainer = document.getElementById('addProductForm'); // Đổi tên để tránh nhầm lẫn với form bên trong
+const formElement = document.getElementById('formElement'); // Lấy thẻ <form>
+const errorMsg = document.getElementById('errorMsg'); // Lấy thẻ báo lỗi
 
-// Hàm toggle (ẩn/hiện) form
+// Hàm toggle form
 function toggleAddProductForm() {
-    if (addProductForm) {
+    if (addProductFormContainer) {
         // Sử dụng classList.toggle để thêm/xóa class 'hidden'
-        addProductForm.classList.toggle('hidden');
+        addProductFormContainer.classList.toggle('hidden');
         
-        // Thay đổi text của nút
-        if (addProductForm.classList.contains('hidden')) {
+        // Thay đổi text của nút và ẩn lỗi (nếu có)
+        if (addProductFormContainer.classList.contains('hidden')) {
             addProductBtn.textContent = 'Thêm sản phẩm';
+            errorMsg.style.display = 'none'; // Ẩn lỗi khi đóng form
         } else {
             addProductBtn.textContent = 'Đóng form';
         }
@@ -80,53 +83,65 @@ if (addProductBtn) {
 }
 
 
-// ===== CHỨC NĂNG THÊM SẢN PHẨM MỚI =====
+// CHỨC NĂNG THÊM SẢN PHẨM MỚI 
 
 // Xử lý submit form thêm sản phẩm
-if (addProductForm) {
-    addProductForm.addEventListener('submit', function(event) {
+if (formElement) { // Lắng nghe sự kiện submit trên thẻ <form>
+    formElement.addEventListener('submit', function(event) {
         event.preventDefault(); // Ngăn form submit mặc định
         
-        // Lấy giá trị từ các trường input
-        const productName = document.getElementById('productName').value;
-        const productDescription = document.getElementById('productDescription').value;
-        const productSpecs = document.getElementById('productSpecs').value;
-        const productPrice = document.getElementById('productPrice').value;
-        const productImage = document.getElementById('productImage').value;
+        // 1. LẤY GIÁ TRỊ TỪ FORM 
+        const productName = document.getElementById('productName').value.trim();
+        const productDescription = document.getElementById('productDescription').value.trim();
+        const productSpecs = document.getElementById('productSpecs').value.trim();
+        const productPriceStr = document.getElementById('productPrice').value.trim();
+        const productImage = document.getElementById('productImage').value.trim();
         
-        // Tạo article mới cho sản phẩm
+        // 2. VALIDATE DỮ LIỆU 
+        const productPrice = Number(productPriceStr); // Chuyển giá sang kiểu Số
+
+        if (productName === '') {
+            errorMsg.textContent = 'Tên sản phẩm không được rỗng.';
+            errorMsg.style.display = 'block';
+            return; // Dừng hàm nếu lỗi
+        }
+
+        if (isNaN(productPrice) || productPrice <= 0) {
+            errorMsg.textContent = 'Giá phải là một số hợp lệ và lớn hơn 0.';
+            errorMsg.style.display = 'block';
+            return; // Dừng hàm nếu lỗi
+        }
+
+        // Nếu tất cả đều hợp lệ, ẩn thông báo lỗi
+        errorMsg.style.display = 'none';
+
+        // 3. TẠO PHẦN TỬ SẢN PHẨM MỚI
         const newProduct = document.createElement('article');
         newProduct.innerHTML = `
             <h3>${productName}</h3>
             <img src="${productImage || 'https://via.placeholder.com/300x200?text=No+Image'}" alt="${productName}">
-            <p>${productDescription}</p>
-            <p><strong>Thông số:</strong> ${productSpecs}</p>
-            <p><strong>Giá:</strong> ${productPrice} VNĐ</p>
+            <p>${productDescription || 'Chưa có mô tả'}</p>
+            <p><strong>Thông số:</strong> ${productSpecs || 'N/A'}</p>
+            <p><strong>Giá:</strong> ${productPrice.toLocaleString('vi-VN')} VNĐ</p>
         `;
         
-        // Thêm sản phẩm mới vào container
+        // 4. THÊM SẢN PHẨM VÀO DANH SÁCH
         const productContainer = document.querySelector('.product-container');
         if (productContainer) {
-            productContainer.appendChild(newProduct);
+            productContainer.appendChild(newProduct); // Thêm vào cuối danh sách
         }
         
-        // Reset form và ẩn đi
-        addProductForm.reset();
-        addProductForm.classList.add('hidden');
-        addProductBtn.textContent = 'Thêm sản phẩm';
+        // 5. RESET FORM VÀ ẨN ĐI 
+        formElement.reset(); // Reset nội dung các trường input
+        addProductFormContainer.classList.add('hidden'); // Ẩn form
+        addProductBtn.textContent = 'Thêm sản phẩm'; // Đổi lại text nút
         
-        // Hiển thị thông báo thành công
-        alert('Đã thêm sản phẩm mới thành công!');
         
-        // Cập nhật lại danh sách sản phẩm để tìm kiếm hoạt động với sản phẩm mới
-        const updatedProducts = document.querySelectorAll('.product-container article');
-        products.length = 0;
-        updatedProducts.forEach(p => products.push(p));
     });
 }
 
 
-// ===== HIỆU ỨNG BỔ SUNG =====
+// HIỆU ỨNG BỔ SUNG 
 
 // Smooth scroll khi click vào menu
 document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
@@ -146,4 +161,4 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
 
 // Log để kiểm tra script đã load
 console.log('Script.js đã được tải thành công!');
-console.log('Số sản phẩm tìm thấy:', products.length);
+// Xóa log 'products.length' vì 'products' không còn là biến toàn cục

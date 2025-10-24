@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Card Màn Hình NVIDIA GeForce RTX 4070 Ti",
+        "img": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/40-series/rtx-4070-4070ti/geforce-rtx-4070-super-og-1200x630.jpg",
+        "desc": "Card đồ họa hiệu năng cao với 12GB GDDR6X, hỗ trợ Ray Tracing và DLSS 3. Hoàn hảo cho gaming 4K và render chuyên nghiệp.",
+        "specs": "12GB GDDR6X | 7680 CUDA Cores | 285W TDP",
+        "price": 24990000 
+    },
+    {
+        "name": "Bộ Vi Xử Lý Intel Core i9-14900K",
+        "img": "https://nguyencongpc.vn/media/product/25341-14900k.png",
+        "desc": "CPU thế hệ 14 với 24 nhân 32 luồng, xung nhịp tối đa 6.0GHz. Sức mạnh vượt trội cho gaming, streaming và công việc sáng tạo nội dung.",
+        "specs": "24 Cores 32 Threads | Max 6.0GHz | Socket LGA1700",
+        "price": 15490000
+    },
+    {
+        "name": "RAM Corsair Vengeance DDR5 32GB (2x16GB) 6000MHz",
+        "img": "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/g/r/group_265_3_.png",
+        "desc": "Bộ nhớ DDR5 cao cấp với tản nhiệt nhôm nguyên khối, RGB SYNC. Tốc độ 6000MHz, latency thấp, tối ưu cho gaming và đa nhiệm.",
+        "specs": "32GB (2x16GB) | DDR5 6000MHz | CL30 | RGB",
+        "price": 4290000
+    },
+    {
+        "name": "Thầy Nam đẹp trai",
+        "img": "https://soict.hust.edu.vn/graduation-day/wp-content/uploads/2025/06/LeHaiNam.png",
+        "desc": "Trí tuệ nhân tạo ứng dụng (Applied Artificial Intelligence)",
+        "specs": "SoICT - HUST",
+        "price": 0
+    }
+]

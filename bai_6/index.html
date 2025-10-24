@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa hàng Linh Kiện Máy Tính TechZone</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Cửa hàng Linh Kiện Máy Tính TechZone</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#products">Sản phẩm</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Chào mừng đến với TechZone</h2>
+            <p>Chuyên cung cấp linh kiện máy tính chính hãng: Laptop, GPU, CPU, RAM, Mainboard và các phụ kiện gaming. Giá tốt nhất thị trường, bảo hành uy tín.</p>
+        </section>
+
+        <section id="products">
+            <h2>Sản phẩm nổi bật</h2>            
+            <div class="product-controls">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
+                    <button id="searchBtn">Tìm</button>
+                </div>
+                <button id="addProductBtn" class="add-product-btn">Thêm sản phẩm</button>
+            </div>
+
+            <div id="addProductForm" class="hidden product-form">
+                <h3>Thêm sản phẩm mới</h3>
+                <form id="formElement">
+                    <div>
+                        <label for="productName">Tên sản phẩm:</label>
+                        <input type="text" id="productName">
+                    </div>
+                    
+                    <div>
+                        <label for="productDescription">Mô tả:</label>
+                        <textarea id="productDescription" rows="3"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="productSpecs">Thông số kỹ thuật:</label>
+                        <input type="text" id="productSpecs">
+                    </div>
+                    
+                    <div>
+                        <label for="productPrice">Giá (VNĐ):</label>
+                        <input type="number" id="productPrice" min="0">
+                    </div>
+                    
+                    <div>
+                        <label for="productImage">Link hình ảnh:</label>
+                        <input type="url" id="productImage" placeholder="https://example.com/image.jpg">
+                    </div>
+                    
+                    <p id="errorMsg" style="color:red; display: none; margin-top: 10px;"></p>
+                    
+                    <button type="submit">Thêm sản phẩm</button>
+                </form>
+            </div>
+            <div class="product-container">
+                </div>
+            
+        </section>
+
+        <section id="contact">
+            <h2>Liên hệ với chúng tôi</h2>
+            <form>
+                <div>
+                    <label for="name">Họ và tên:</label><br>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <br>
+                
+                <div>
+                    <label for="message">Nội dung:</label><br>
+                    <textarea id="message" name="message" rows="5" cols="40" required></textarea>
+                </div>
+                
+                <br>
+                
+                <button type="submit">Gửi</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <hr>
+        <p><strong>Cửa hàng Linh Kiện Máy Tính TechZone</strong></p>
+        <p>Địa chỉ: 69 Thanh Xuân Hà Nội</p>
+        <p>Điện thoại: 0987654321 | Hotline: 0123456789</p>
+        <p>Email: tuan.na225772@sis.hust.edu.vn</p>
+        <p>&copy; 2025 TechZone. Tất cả quyền được bảo lưu.</p>
+    </footer>
+    <script src="./script.js"></script>
+</body> 
+</html>
